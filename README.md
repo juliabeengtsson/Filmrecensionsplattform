@@ -35,15 +35,3 @@ DELETE /reviews/:id: Ta bort en specifik recension.
 POST /register: Registrera en ny användare.
 
 POST /login: Logga in en användare
-
-Betygskriterier
-För Godkänt:
-
-Uppfyller all funktionalitet enligt ovan
-bifoga exempelanrop till alla endpoints (se länk under inlämning)
-För Väl Godkänt:
-
-backend följer en MVC-arkitektur (eller motsv.)
-Lägg till en endpoint:
-GET /movies/ratings: Hämta en lista med alla filmer och deras genomsnittliga betyg.
-använd olika roller: user och admin. Alla kan hämta filmer samt läsa/skriva rescensioner men endast admin kan lägga till, uppdatera eller ta bort filmer.
