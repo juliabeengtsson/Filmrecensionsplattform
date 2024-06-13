@@ -9,8 +9,8 @@ const userRouter = require('./users');
 const reviewRouter = require('./reviews');
 
 app.use('/', movieRouter);
-app.use('/', userRouter);
 app.use('/', reviewRouter);
+app.use('/', userRouter);
 
 const PORT = 1337
 const URL = '127.0.0.1'

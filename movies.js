@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Movie = require('./Schema');
+const {Movie} = require('./Schema');
 
 router.post('/movies', async (req, res) => {
     try {
@@ -43,7 +43,7 @@ router.put('/movies/:id', async (req, res) => {
         if(!updateMovie) {
             res.status(404).send('movie not found')
         }
-        res.status(200).send(movieById);
+        res.status(200).send(updateMovie);
     } catch(error) {
         res.status(500).send(error);
     }
@@ -69,5 +69,17 @@ router.delete('/movies/:id', async (req, res) => {
     }
 })
 
+router.get('/movies/:id/reviews', async (req, res) => {
+    try {
+        const reviews = await Review.find({ movieId: req.params.id })
+        if (!reviews.length) {
+            return res.status(404).json({message: 'We could not find any reviews for the selected movie.'})
+        }
+        res.status(200).send(movieReviews);
+
+    } catch(error) {
+        res.status(500).send(error);
+    }
+})
 
 module.exports = router;
